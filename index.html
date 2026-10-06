@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acolhe · Psicologia online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f3f8;--ink:#20263a;--mut:#6b7188;--card:#fff;--ac:#6b5ca5;--ac2:#e4e0f3;--sg:#7fa99b;--rs:#f0c7cc;--ln:#e3e5ee;--r:18px}
+@media(prefers-color-scheme:dark){:root:not([data-t=l]){--bg:#171a28;--ink:#eceefa;--mut:#9aa0ba;--card:#222640;--ac:#a898e6;--ac2:#2e3354;--ln:#323859}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 'DM Sans',system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:400;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.3rem,6vw,4rem)}h2{font-size:1.8rem}h3{font-size:1.25rem}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;position:sticky;top:0;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);z-index:5;border-bottom:1px solid var(--ln)}
+.logo{font:600 1.35rem Fraunces,serif;display:flex;gap:8px;align-items:center;cursor:pointer}.logo i{width:26px;height:26px;border-radius:50% 50% 50% 8px;background:linear-gradient(135deg,var(--ac),var(--sg))}
+.nv{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+button,.btn{font:inherit;font-weight:500;border:0;border-radius:99px;padding:10px 20px;cursor:pointer;background:var(--ac);color:#fff}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--sg);outline-offset:2px}
+.g{background:transparent;color:var(--ink);border:1px solid var(--ln)}.sm{padding:6px 14px;font-size:.88rem}.ok{background:var(--sg)}.no{background:#c9667a}
+main{max-width:1060px;margin:0 auto;padding:28px 5vw 80px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;min-height:68vh}
+.hero p{color:var(--mut);font-size:1.15rem;max-width:46ch}
+.orb{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,var(--rs),transparent 55%),radial-gradient(circle at 70% 70%,var(--sg),transparent 55%),var(--ac2);display:grid;place-items:center;text-align:center;animation:br 8s ease-in-out infinite}
+.orb span{font:italic 1.5rem Fraunces,serif;padding:20px;max-width:15ch}
+@keyframes br{50%{transform:scale(1.06)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:var(--r);padding:22px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}.grid .card{margin:0}
+label{display:block;font-size:.88rem;color:var(--mut);margin:12px 0 4px}
+input,select,textarea{width:100%;font:inherit;padding:11px 14px;border-radius:12px;border:1px solid var(--ln);background:var(--bg);color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:700px){.row,.hero{grid-template-columns:1fr}.orb{max-width:260px}}
+.tabs{display:flex;gap:8px;margin:0 0 22px;flex-wrap:wrap}.tabs button{background:var(--card);color:var(--ink);border:1px solid var(--ln)}.tabs .on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.tag{display:inline-block;padding:2px 12px;border-radius:99px;background:var(--ac2);font-size:.82rem;margin:2px 4px 2px 0}
+.av{width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--sg));color:#fff;display:grid;place-items:center;font:1.3rem Fraunces,serif;flex:none}
+.fl{display:flex;gap:14px;align-items:center}.sl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.sl button{background:var(--bg);color:var(--ink);border:1px solid var(--ln)}.sl .on{background:var(--ac);color:#fff}.sl button:disabled{opacity:.35;text-decoration:line-through;cursor:not-allowed}
+.chat{display:flex;flex-direction:column;height:430px}.msgs{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:6px}
+.m{max-width:78%;padding:9px 14px;border-radius:16px;background:var(--ac2)}.m.me{align-self:flex-end;background:var(--ac);color:#fff}.m small{display:block;opacity:.6;font-size:.7rem}
+.cf{display:flex;gap:8px;margin-top:10px}.mut{color:var(--mut);font-size:.9rem}
+.bz{width:150px;height:150px;border-radius:50%;margin:20px auto;background:radial-gradient(var(--sg),var(--ac2));display:grid;place-items:center;transition:transform 4s ease-in-out;color:#fff;font-weight:700}
+.dy{display:grid;grid-template-columns:130px 1fr 80px;gap:8px;align-items:center;margin:6px 0}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:99px;z-index:9}
+</style></head><body>
+<nav><div class="logo" onclick="go('home')"><i></i>Acolhe</div><div class="nv" id="nv"></div></nav>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* ===== CONFIG: ligue aqui um backend seu para consultar o CFP de verdade ===== */
+const CFG={verifyEndpoint:'',adminPin:'admin123'};
+const DB=JSON.parse(localStorage.getItem('acolhe')||'{"u":[],"a":[],"m":[],"d":[],"s":null}');
+const save=()=>{try{localStorage.setItem('acolhe',JSON.stringify(DB))}catch(e){}};
+addEventListener('storage',e=>{if(e.key==='acolhe'){Object.assign(DB,JSON.parse(e.newValue));if(view==='chat')chatRender()}});
+const me=()=>DB.u.find(u=>u.id===DB.s),uid=()=>Math.random().toString(36).slice(2,10);
+const toast=t=>{const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.append(d);setTimeout(()=>d.remove(),3200)};
+const hash=async p=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p)))].map(b=>b.toString(16).padStart(2,'0')).join('');
+const DAYS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],iso=d=>d.toISOString().slice(0,10);
+const fmt=s=>{const[d,h]=s.split('T');return d.split('-').reverse().join('/')+' às '+h};
+let view='home',tab='',cur=null;
+function go(v,t=''){view=v;tab=t;render()}
+/* ===== CFP: envia dados e retorna 'approved' | 'rejected' | 'pending' ===== */
+async function verifyCFP(p){
+  if(!/^\d{2}\/\d{4,6}$/.test(p.crp))return{s:'rejected',why:'Formato do CRP inválido. Use o padrão 08/12345.'};
+  if(CFG.verifyEndpoint){try{const r=await fetch(CFG.verifyEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nome:p.name,cpf:p.cpf,crp:p.crp})});const j=await r.json();return{s:j.status,why:j.motivo}}catch(e){}}
+  return{s:'pending'}; // sem backend: fica na fila de aprovação
+}
+function nav(){const u=me(),n=$('#nv');n.innerHTML=u?`<span class="mut">Olá, ${esc(u.name.split(' ')[0])}</span><button class="g sm" onclick="go('dash')">Meu espaço</button><button class="g sm" onclick="DB.s=null;save();go('home')">Sair</button>`:`<button class="g sm" onclick="go('adm')">Aprovações</button><button class="g sm" onclick="go('login')">Entrar</button><button class="sm" onclick="go('reg','p')">Criar conta</button>`}
+function render(){nav();const a=$('#app');scrollTo(0,0);
+  if(view==='home')a.innerHTML=`<section class="hero"><div><h1>Um espaço seguro para cuidar de você.</h1><p>Encontre psicólogos com registro verificado no CFP, escolha um horário e converse antes da sua teleconsulta.</p><div class="fl" style="margin-top:22px"><button onclick="go('reg','p')">Quero ser atendido</button><button class="g" onclick="go('reg','x')">Sou psicólogo(a)</button></div></div><div class="orb"><span>Respire. Você já deu o primeiro passo.</span></div></section>
+  <div class="grid"><div class="card"><h3>Profissionais verificados</h3><p class="mut">Todo cadastro passa por conferência do CRP no CFP antes de aparecer na busca.</p></div><div class="card"><h3>Agenda de 1 hora</h3><p class="mut">Veja apenas horários livres e agende em poucos cliques.</p></div><div class="card"><h3>Chat da consulta</h3><p class="mut">Combine o melhor meio — WhatsApp, vídeo ou telefone — direto com o profissional.</p></div></div>`;
+  else if(view==='login')a.innerHTML=`<div class="card" style="max-width:420px;margin:auto"><h2>Bem-vindo de volta</h2><label>E-mail</label><input id="e" type="email"><label>Senha</label><input id="p" type="password"><p></p><button onclick="login()">Entrar</button></div>`;
+  else if(view==='reg')regForm(a);
+  else if(view==='adm')admin(a);
+  else if(view==='dash'){if(!me())return go('login');me().role==='pro'?proDash(a):patDash(a)}
+  else if(view==='chat')chatView(a);
+}
+async function login(){const u=DB.u.find(x=>x.email===$('#e').value.trim().toLowerCase());if(!u||u.pw!==await hash($('#p').value))return toast('E-mail ou senha incorretos.');DB.s=u.id;save();go('dash')}
+function regForm(a){const pro=tab==='x';
+  a.innerHTML=`<div class="card" style="max-width:640px;margin:auto"><div class="tabs"><button class="${pro?'':'on'}" onclick="go('reg','p')">Sou paciente</button><button class="${pro?'on':''}" onclick="go('reg','x')">Sou psicólogo(a)</button></div><h2>${pro?'Cadastro profissional':'Criar minha conta'}</h2>
+  <div class="row"><div><label>Nome completo</label><input id="n"></div><div><label>CPF</label><input id="cpf" placeholder="000.000.000-00"></div></div>
+  <div class="row"><div><label>E-mail</label><input id="e" type="email"></div><div><label>Telefone / WhatsApp</label><input id="tel"></div></div>
+  <div class="row"><div><label>Data de nascimento</label><input id="nasc" type="date"></div><div><label>Senha (mín. 6)</label><input id="pw" type="password"></div></div>
+  ${pro?`<div class="row"><div><label>CRP</label><input id="crp" placeholder="08/12345"></div><div><label>Valor da sessão (R$)</label><input id="pr" type="number" value="150"></div></div>
+  <label>Abordagem</label><select id="ab"><option>TCC</option><option>Psicanálise</option><option>Humanista</option><option>Gestalt</option><option>Análise do Comportamento</option><option>Junguiana</option></select>
+  <label>Especialidades (separe por vírgula)</label><input id="sp" placeholder="ansiedade, luto, casais">
+  <label>Formação e experiência</label><textarea id="bio" rows="3"></textarea>`:`<label>Cidade / UF</label><input id="cid">`}
+  <label><input type="checkbox" id="lgpd" style="width:auto"> Concordo com o tratamento dos meus dados conforme a LGPD.</label><p></p><button id="sb" onclick="register(${pro})">${pro?'Enviar para verificação no CFP':'Criar conta'}</button></div>`}
+async function register(pro){const g=i=>($('#'+i)?.value||'').trim(),u={id:uid(),role:pro?'pro':'pat',name:g('n'),cpf:g('cpf'),email:g('e').toLowerCase(),tel:g('tel'),nasc:g('nasc'),cid:g('cid')};
+  if(!u.name||!u.email||!u.cpf||g('pw').length<6||!$('#lgpd').checked)return toast('Preencha todos os campos e aceite os termos.');
+  if(DB.u.some(x=>x.email===u.email))return toast('Este e-mail já está cadastrado.');
+  u.pw=await hash(g('pw'));
+  if(pro){Object.assign(u,{crp:g('crp'),price:+g('pr'),ab:g('ab'),sp:g('sp').split(',').map(s=>s.trim()).filter(Boolean),bio:g('bio'),avail:{1:[9,17],2:[9,17],3:[9,17],4:[9,17],5:[9,17]}});
+    $('#sb').textContent='Consultando CFP…';const r=await verifyCFP(u);u.status=r.s;u.why=r.why||'';}
+  DB.u.push(u);DB.s=u.id;save();
+  if(pro)toast(u.status==='approved'?'CRP aprovado! Seu perfil já está visível.':u.status==='rejected'?'Cadastro não aprovado: '+u.why:'Cadastro enviado. Aguarde a aprovação do CRP.');
+  go('dash')}
+/* ===== ADMIN (demo): aprova/reprova após conferir no site do CFP ===== */
+function admin(a){if(!window.adm){const p=prompt('PIN de administrador');if(p!==CFG.adminPin){toast('PIN incorreto.');return go('home')}window.adm=1}
+  const l=DB.u.filter(u=>u.role==='pro'&&u.status==='pending');
+  a.innerHTML=`<h2>Fila de aprovação de CRP</h2><p class="mut">Confira cada dado no <a href="https://cadastro.cfp.org.br/" target="_blank" rel="noopener">Cadastro Nacional do CFP</a> e decida.</p>`+(l.map(u=>`<div class="card"><b>${esc(u.name)}</b> · CRP ${esc(u.crp)} · CPF ${esc(u.cpf)}<br><span class="mut">${esc(u.email)} · ${esc(u.tel)}</span><div class="fl" style="margin-top:12px"><button class="sm g" onclick="navigator.clipboard?.writeText('${esc(u.crp)}');window.open('https://cadastro.cfp.org.br/','_blank')">Copiar CRP e abrir CFP</button><button class="sm ok" onclick="setSt('${u.id}','approved')">Aprovar</button><button class="sm no" onclick="setSt('${u.id}','rejected')">Reprovar</button></div></div>`).join('')||'<div class="card mut">Nenhum cadastro aguardando.</div>')}
+function setSt(id,s){const u=DB.u.find(x=>x.id===id);u.status=s;if(s==='rejected')u.why='CRP não localizado ou dados divergentes no CFP.';save();admin($('#app'))}
+/* ===== PACIENTE ===== */
+function booked(pid){return DB.a.filter(x=>x.pro===pid&&x.st!=='cancel').map(x=>x.at)}
+function patDash(a){const t=tab||'find';
+  a.innerHTML=`<div class="tabs">${[['find','Encontrar psicólogo'],['apps','Minhas consultas'],['mood','Diário de humor'],['br','Respirar']].map(x=>`<button class="${t===x[0]?'on':''}" onclick="tab='${x[0]}';patDash($('#app'))">${x[1]}</button>`).join('')}</div><div id="t"></div>`;const b=$('#t');
+  if(t==='find'){const q=(window.q||'').toLowerCase(),l=DB.u.filter(u=>u.role==='pro'&&u.status==='approved'&&(u.name+u.sp+u.ab).toLowerCase().includes(q));
+    b.innerHTML=`<input placeholder="Buscar por nome, abordagem ou especialidade…" value="${esc(window.q||'')}" oninput="window.q=this.value;clearTimeout(window.tm);window.tm=setTimeout(()=>{patDash($('#app'));$('#t input').focus()},300)"><p></p><div class="grid">${l.map(u=>`<div class="card"><div class="fl"><div class="av">${esc(u.name[0])}</div><div><h3 style="margin:0">${esc(u.name)}</h3><span class="mut">CRP ${esc(u.crp)} · ${esc(u.ab)}</span></div></div><p>${u.sp.map(s=>`<span class="tag">${esc(s)}</span>`).join('')}</p><p class="mut">${esc(u.bio).slice(0,140)}</p><b>R$ ${u.price} / 1h</b> <button class="sm" style="float:right" onclick="book('${u.id}')">Agendar</button></div>`).join('')||'<div class="card mut">Nenhum profissional aprovado ainda. Cadastre um psicólogo e aprove na tela “Aprovações”.</div>'}</div>`}
+  if(t==='apps')appList(b);
+  if(t==='mood'){const my=DB.d.filter(x=>x.u===me().id).slice(-7).reverse();b.innerHTML=`<div class="card"><h3>Como você está hoje?</h3><div class="fl" id="em">${['😞','😕','😐','🙂','😄'].map((e,i)=>`<button class="g" style="font-size:1.6rem" onclick="window.mv=${i+1};this.parentNode.querySelectorAll('button').forEach(x=>x.classList.remove('on'));this.classList.add('on')">${e}</button>`).join('')}</div><label>Quer anotar algo?</label><textarea id="nt" rows="2"></textarea><p></p><button onclick="if(!window.mv)return toast('Escolha um humor.');DB.d.push({u:me().id,v:mv,n:$('#nt').value,t:iso(new Date())});save();patDash($('#app'))">Salvar registro</button></div>${my.map(x=>`<div class="dy"><span>${x.t.split('-').reverse().join('/')}</span><div style="height:10px;border-radius:9px;background:linear-gradient(90deg,var(--sg),var(--ac));width:${x.v*20}%"></div><span>${'😞😕😐🙂😄'.match(/./gu)[x.v-1]}</span></div>`).join('')}`}
+  if(t==='br'){b.innerHTML=`<div class="card" style="text-align:center"><h3>Respiração 4–4</h3><p class="mut">Inspire quando crescer, solte quando diminuir.</p><div class="bz" id="bz">Iniciar</div><button onclick="breathe()">Começar</button></div>`}}
+function breathe(){const z=$('#bz');let i=0;clearInterval(window.bt);const f=()=>{z.style.transform=i%2?'scale(.7)':'scale(1.5)';z.textContent=i%2?'Solte':'Inspire';i++};f();window.bt=setInterval(()=>{if(!$('#bz'))return clearInterval(window.bt);f()},4000)}
+function book(pid){const p=DB.u.find(x=>x.id===pid);window.bk={pid,d:null,h:null};
+  $('#t').innerHTML=`<div class="card"><h2>Agendar com ${esc(p.name)}</h2><p class="mut">Cada consulta dura 1 hora.</p><div class="sl" id="ds">${[...Array(14)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()+i);return(p.avail[d.getDay()]?`<button onclick="pickD('${iso(d)}',${d.getDay()},this)">${DAYS[d.getDay()].slice(0,3)} ${d.getDate()}/${d.getMonth()+1}</button>`:'')}).join('')||'<span class="mut">Sem horários.</span>'}</div><div class="sl" id="hs"></div><p></p><button onclick="confirmB()">Confirmar agendamento</button> <button class="g" onclick="patDash($('#app'))">Voltar</button></div>`}
+function pickD(d,w,el){bk.d=d;bk.h=null;document.querySelectorAll('#ds button').forEach(x=>x.classList.remove('on'));el.classList.add('on');const p=DB.u.find(x=>x.id===bk.pid),[s,e]=p.avail[w],bz=booked(p.id),now=new Date();let h='';
+  for(let i=s;i<e;i++){const at=`${d}T${String(i).padStart(2,'0')}:00`,past=new Date(at)<now;h+=`<button ${bz.includes(at)||past?'disabled':''} onclick="bk.h='${at}';document.querySelectorAll('#hs button').forEach(x=>x.classList.remove('on'));this.classList.add('on')">${String(i).padStart(2,'0')}:00</button>`}$('#hs').innerHTML=h}
+function confirmB(){if(!bk.h)return toast('Escolha dia e horário.');if(booked(bk.pid).includes(bk.h))return toast('Horário acabou de ser ocupado.');DB.a.push({id:uid(),pro:bk.pid,pat:me().id,at:bk.h,st:'ok'});save();toast('Consulta agendada!');tab='apps';patDash($('#app'))}
+function appList(b){const u=me(),l=DB.a.filter(x=>x[u.role==='pro'?'pro':'pat']===u.id).sort((x,y)=>x.at.localeCompare(y.at));
+  b.innerHTML=l.map(x=>{const o=DB.u.find(y=>y.id===x[u.role==='pro'?'pat':'pro']);return`<div class="card fl" style="justify-content:space-between;flex-wrap:wrap"><div><b>${fmt(x.at)}</b> · 1h<br><span class="mut">${esc(o?.name)} ${x.st==='cancel'?'· cancelada':''}</span></div><div class="fl"><button class="sm" onclick="cur='${x.id}';go('chat')">Abrir chat</button>${x.st==='ok'?`<button class="sm g" onclick="if(confirm('Cancelar esta consulta?')){DB.a.find(y=>y.id==='${x.id}').st='cancel';save();go('dash','apps')}">Cancelar</button>`:''}</div></div>`}).join('')||'<div class="card mut">Nenhuma consulta por aqui ainda.</div>'}
+/* ===== PROFISSIONAL ===== */
+function proDash(a){const u=me();
+  if(u.status!=='approved'){a.innerHTML=`<div class="card" style="max-width:560px;margin:auto"><h2>${u.status==='pending'?'Cadastro em análise':'Cadastro não aprovado'}</h2><p>${u.status==='pending'?'Estamos conferindo seu CRP '+esc(u.crp)+' no Cadastro Nacional do CFP. Você será liberado(a) assim que for aprovado(a).':'Seu cadastro não foi aprovado. '+esc(u.why)}</p></div>`;return}
+  const t=tab||'ag';a.innerHTML=`<div class="tabs">${[['ag','Minha agenda'],['apps','Consultas'],['pf','Perfil']].map(x=>`<button class="${t===x[0]?'on':''}" onclick="tab='${x[0]}';proDash($('#app'))">${x[1]}</button>`).join('')}</div><div id="t"></div>`;const b=$('#t');
+  if(t==='ag')b.innerHTML=`<div class="card"><h3>Dias e horários de atendimento</h3><p class="mut">Cada hora liberada vira um horário de 1h para os pacientes.</p>${DAYS.map((d,i)=>{const v=u.avail[i];return`<div class="dy"><label style="margin:0"><input type="checkbox" style="width:auto" ${v?'checked':''} onchange="av(${i},this.checked)"> ${d}</label>${v?`<select onchange="av2(${i},0,this.value)">${hrs(v[0])}</select><select onchange="av2(${i},1,this.value)">${hrs(v[1])}</select>`:'<span class="mut">Fechado</span>'}</div>`}).join('')}</div>`;
+  if(t==='apps')appList(b);
+  if(t==='pf')b.innerHTML=`<div class="card"><h3>${esc(u.name)}</h3><p>CRP ${esc(u.crp)} <span class="tag">Aprovado no CFP</span></p><label>Bio</label><textarea id="bio" rows="3">${esc(u.bio)}</textarea><label>Valor da sessão (R$)</label><input id="pr" type="number" value="${u.price}"><p></p><button onclick="u=me();u.bio=$('#bio').value;u.price=+$('#pr').value;save();toast('Perfil salvo.')">Salvar perfil</button></div>`}
+const hrs=s=>[...Array(17)].map((_,i)=>`<option value="${i+6}" ${i+6==s?'selected':''}>${String(i+6).padStart(2,'0')}:00</option>`).join('');
+function av(i,on){me().avail[i]=on?[9,17]:undefined;if(!on)delete me().avail[i];save();proDash($('#app'))}
+function av2(i,k,v){const a=me().avail[i];a[k]=+v;if(a[0]>=a[1])toast('O fim deve ser depois do início.');save()}
+/* ===== CHAT ===== */
+function chatView(a){const x=DB.a.find(y=>y.id===cur),u=me();if(!x||!u)return go('home');const o=DB.u.find(y=>y.id===(u.id===x.pro?x.pat:x.pro));
+  a.innerHTML=`<button class="g sm" onclick="go('dash','apps')">← Voltar</button><div class="card" style="margin-top:12px"><h3>Consulta em ${fmt(x.at)} com ${esc(o.name)}</h3><p class="mut">Combine aqui o melhor meio para a teleconsulta (WhatsApp, Meet, Zoom, telefone). Compartilhe contatos só se se sentir à vontade.</p><div class="chat"><div class="msgs" id="ms"></div><div class="cf"><input id="mi" placeholder="Escreva uma mensagem…" onkeydown="if(event.key==='Enter')send()"><button onclick="send()">Enviar</button></div></div></div>`;chatRender()}
+function chatRender(){const m=$('#ms');if(!m)return;m.innerHTML=DB.m.filter(x=>x.a===cur).map(x=>`<div class="m ${x.f===DB.s?'me':''}">${esc(x.t)}<small>${new Date(x.ts).toLocaleString('pt-BR',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'})}</small></div>`).join('')||'<span class="mut">Diga olá para começar.</span>';m.scrollTop=m.scrollHeight}
+function send(){const i=$('#mi'),t=i.value.trim();if(!t)return;DB.m.push({a:cur,f:DB.s,t,ts:Date.now()});save();i.value='';chatRender()}
+render();
+</script></body></html>
